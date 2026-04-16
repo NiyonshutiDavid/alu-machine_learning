@@ -1,12 +1,8 @@
 #!/usr/bin/env python3
-"""
-Saddle up
-"""
-
-
+"""Performs matrix multiplication"""
 import numpy as np
+
+
 def np_matmul(mat1, mat2):
-    """
-    Performs matrix multiplication
-    """
+    """Performs matrix multiplication using numpy"""
     return np.matmul(mat1, mat2)

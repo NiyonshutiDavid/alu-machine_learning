@@ -1,30 +1,32 @@
 #!/usr/bin/env python3
-"""Function that performs pooling on images"""
+"""Performs pooling on images"""
 
 import numpy as np
 
 
 def pool(images, kernel_shape, stride, mode='max'):
-    """Performs a convolution on images using multiple kernels
+    """
+    Performs pooling on images
     Args:
-        images: `numpy.ndarray` with shape (m, h, w)
-            containing multiple grayscale images
-            m: `int`, is the number of images
-            h: `int`, is the height in pixels of the images
-            w: `int`, is the width in pixels of the images
-            c: `int`, is the number of channels in the image
-        kernel_shape is a tuple of (kh, kw) containing
-            the kernel shape for the pooling
-            kh: `int`, is the height of the kernel
-            kw: `int`, is the width of the kernel
-        stride is a `tuple` of (sh, sw)
-            sh: `int`, is the stride for the height of the image
-            sw: `int`, is the stride for the width of the image
-        mode: `str`, indicates the type of pooling
-            max: indicates max pooling
-            avg: indicates average pooling
+    -images(numpy.ndarray) containing multiple
+    grayscale images with shape(m, h, w, c):
+        -m: number of images
+        -h: height in pixels of the images
+        -w: width in pixels of the images
+        -c: number of channels in the image
+    -kernel(numpy.ndarray) containing the kernel
+    for the convolution with shape(kh, kw):
+        -kh: height of the kernel
+        -kw: width of the kernel
+    -stride is a tuple of (sh, sw)
+        -sh: stride for the height of the image
+        -sw: stride for the width of the image
+    -mode indicates the type of pooling
+        -max: max pooling
+        -avg: average pooling
+
     Returns:
-        output: `numpy.ndarray` containing the convolved images
+    a numpy.ndarray containing the convolved images
     """
     c = images.shape[3]
     m, h, w = images.shape[0], images.shape[1], images.shape[2]

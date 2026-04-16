@@ -1,10 +1,24 @@
 #!/usr/bin/env python3
-""" train"""
+"""
+Function evaluates the output of the network
+"""
+
+
 import tensorflow as tf
 
 
 def evaluate(X, Y, save_path):
-    """ evaluate"""
+    """
+    Evaluates the output of the network
+
+    Args:
+    X(numpy.ndarray): input data to evaluate
+    Y(numpy.ndarray): one-hot labels for X
+    save_path: location to load the model from
+
+    Returns:
+    network's prediction, accuracy and loss
+    """
     with tf.Session() as sess:
         saver = tf.train.import_meta_graph(save_path + '.meta')
         saver.restore(sess, save_path)

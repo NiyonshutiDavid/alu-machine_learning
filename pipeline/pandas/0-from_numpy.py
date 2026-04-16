@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
-'''
-    Function def from_numpy(array):
-    that creates a pd.DataFrame from a np.ndarray
-'''
+"""
+Function creates a dataframe from a numpy array
+"""
 
 
 import string
@@ -10,19 +9,16 @@ import pandas as pd
 
 
 def from_numpy(array):
-    '''
-        Function def from_numpy(array):
-        that creates a pd.DataFrame from a np.ndarray
-
-        Args:
-            - array is the np.ndarray from which you should
-            create the pd.DataFrame
-            - The columns of the pd.DataFrame should be labeled
-            in alphabetical order and capitalized.
-
-        Returns:
-            - Returns: the newly created pd.DataFrame
-    '''
+    """
+    Creates a pandas dataframe from a numpyndarray
+    Args:
+    - array: np.ndarray that should be used to create
+      pd.Dataframe
+    - columns of the pd.Dataframe should be labeled in
+    in alphabetical order and capitalized
+    Returns:
+    new dataframe
+    """
     num_columns = array.shape[1]
 
     # Generate the column labels (A, B, C, ...)
@@ -30,5 +26,5 @@ def from_numpy(array):
 
     # Create the DataFrame
     df = pd.DataFrame(array, columns=columns)
-
+F
     return df

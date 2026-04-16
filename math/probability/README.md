@@ -1,1 +1,1 @@
-# Probability and distributions
+probability

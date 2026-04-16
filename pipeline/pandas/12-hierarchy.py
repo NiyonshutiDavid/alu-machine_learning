@@ -16,8 +16,10 @@ import pandas as pd
 from_file = __import__('2-from_file').from_file
 
 # Load data
-df1 = from_file('../Data/coinbaseUSD_1-min_data_2014-12-01_to_2019-01-09.csv', ',')
-df2 = from_file('../Data/bitstampUSD_1-min_data_2012-01-01_to_2020-04-22.csv', ',')
+df1 = from_file(
+    '../Data/coinbaseUSD_1-min_data_2014-12-01_to_2019-01-09.csv', ',')
+df2 = from_file(
+    '../Data/bitstampUSD_1-min_data_2012-01-01_to_2020-04-22.csv', ',')
 
 # Set 'Timestamp' as index
 df1 = df1.set_index('Timestamp')

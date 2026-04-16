@@ -1,1 +1,1 @@
-# Advanced linear algebra
+Advanced linear algebra

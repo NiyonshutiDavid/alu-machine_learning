@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" defines Poisson class that represents Poisson distribution """
+"""Creates a class that represents a poisson distribution"""
 
 
 class Poisson:
@@ -16,9 +16,10 @@ class Poisson:
         def pmf(self, k): calculates PMF for given number of successes
         def cdf(self, k): calculates CDF for given number of successes
     """
-
     def __init__(self, data=None, lambtha=1.):
         """
+        Initializes the poisson distribution
+
         class constructor
 
         parameters:
@@ -35,59 +36,59 @@ class Poisson:
             Raise ValueError if data does not contain at least two data points
         """
         if data is None:
-            if lambtha < 1:
+            if lambtha <= 0:
                 raise ValueError("lambtha must be a positive value")
-            else:
-                self.lambtha = float(lambtha)
+            self.lambtha = float(lambtha)
         else:
-            if type(data) is not list:
+            if not isinstance(data, list):
                 raise TypeError("data must be a list")
-            elif len(data) < 2:
+            if len(data) < 2:
                 raise ValueError("data must contain multiple values")
-            else:
-                lambtha = float(sum(data) / len(data))
-                self.lambtha = lambtha
+            # Calculate lambtha as the mean of the data
+            self.data = data
+            self.lambtha = float(sum(data) / len(data))
 
     def pmf(self, k):
         """
-        calculates the value of the PMF for a given number of successes
+        The instance method pmf to calculate given number of successes k
 
-        parameters:
-            k [int]: number of successes
-                If k is not an int, convert it to int
-                If k is out of range, return 0
+        Args:
+        k [int]: the number of successes
 
-        return:
-            the PMF value for k
+        Returns:
+        pmf: the probability of successes 'k'
         """
         if type(k) is not int:
             k = int(k)
+        # PMF defined for non-negative integers
         if k < 0:
             return 0
-        e = 2.7182818285
+        # calculates PMF using the formula: (lambtha^k * e^-lambtha) / k!
         lambtha = self.lambtha
+        e = 2.7182818285
         factorial = 1
         for i in range(k):
             factorial *= (i + 1)
-        pmf = ((lambtha ** k) * (e ** -lambtha)) / factorial
+        pmf = (lambtha ** k) * (e ** -lambtha) / factorial
+
         return pmf
 
     def cdf(self, k):
         """
-        calculates the value of the CDF for a given number of successes
+        The instance method PMF to calculate given number of successes k
 
-        parameters:
-            k [int]: number of successes
-                If k is not an int, convert it to int
-                If k is out of range, return 0
+        Args:
+        k [int]: the number of successes
 
-        return:
-            the CDF value for k
+        Returns:
+        cdf: the probability of successes 'k'
         """
         if type(k) is not int:
             k = int(k)
+        # cdf defined for non-negative integers
         if k < 0:
             return 0
+        # calculates CMF summing the PMF values from 0 to k
         cdf = 0
         for i in range(k + 1):
             cdf += self.pmf(i)

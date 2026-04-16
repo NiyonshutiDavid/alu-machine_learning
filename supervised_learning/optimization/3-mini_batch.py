@@ -1,31 +1,37 @@
 #!/usr/bin/env python3
-""" Train Mini-Batch"""
+"""
+Function trains a loaded neural network model
+using mini-batch gradient descent
+"""
+
 
 import tensorflow as tf
 shuffle_data = __import__('2-shuffle_data').shuffle_data
 
 
-def train_mini_batch(X_train, Y_train, X_valid, Y_valid, batch_size=32,
+def train_mini_batch(X_train, Y_train, X_valid,
+                     Y_valid, batch_size=32,
                      epochs=5, load_path="/tmp/model.ckpt",
                      save_path="/tmp/model.ckpt"):
-    """ trains a loaded neural network model using mini-batch gradient descent
+    """
+    Trains a loaded neural network using mini-batch gradient descent
 
     Args:
-        X_train (np.array): matrix of shape (m, 784) containing
-        the training data
-        Y_train (np.array): one-hot matrix of shape (m, 10)
-        containing the training labels
-        X_valid (np.array): matrix of shape (m, 784) containing
-        the validation data
-        Y_valid (np.array): one-hot matrix of shape (m, 10) containing the
-        validation labels
-        batch_size (int): number of data points in a batch
-        epochs (int): number of times the training should pass through the
-        whole dataset
-        load_path (str): path from which to load the model
-        save_path (str): path to where the model should be saved
+    X_train(numpy.ndarray): shape(m, 784) training data
+        m: number of data points
+        784: number of input features
+    Y_train(numpy.ndarray): shape(m, 10) one-hot training data
+        10: number of classes
+    X_valid(numpy.ndarray): shape(m, 784) validation data
+    Y_valid(numpy.ndarray): shape(m, 10) one-hot validation data
+    batch_size: number of data points in a batch
+    epochs: number of times the training should
+    pass through the whole dataset
+    load_path: path from which to load the model
+    save_path: path to where the model should be saved after training
+
     Returns:
-        str: the path where the model was saved
+    path where the model is saved
     """
     with tf.Session() as sess:
         saver = tf.train.import_meta_graph(load_path + '.meta')

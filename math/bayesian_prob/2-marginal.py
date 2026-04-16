@@ -6,8 +6,21 @@ import numpy as np
 
 
 def marginal(x, n, P, Pr):
-    """"Function that calculates the marginal
-    probability of obtaining the data"""
+    """"
+    Function that calculates the marginal
+    probability of obtaining the data
+
+    Args:
+        x is the number of patients that develop severe side effects
+        n is the total number of patients observed
+        P is a 1D numpy.ndarray of length equal to the
+        number of patients that develop severe side effects
+        Pr is a 1D numpy.ndarray of length equal to the
+        number of patients that develop severe side effects
+
+    Returns:
+        the marginal probability of obtaining x
+    """
     if type(n) is not int or n <= 0:
         raise ValueError("n must be a positive integer")
     if type(x) is not int or x < 0:

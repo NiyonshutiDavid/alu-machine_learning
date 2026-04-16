@@ -1,10 +1,23 @@
 #!/usr/bin/env python3
-""" Moving average"""
+"""
+Function calculates the weighted moving average of a dataset
+"""
+
+
 import numpy as np
 
 
 def moving_average(data, beta):
-    """ moving average"""
+    """
+    Calculates the weighted moving average
+
+    Args:
+    data: list of data to calculate the moving average
+    beta: weight used for the moving average
+
+    Returns:
+    a list containing the moving averages of data
+    """
     v = 0
     result = []
     for x in range(len(data)):

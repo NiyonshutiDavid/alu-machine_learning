@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" defines a function that calculates the derivative of a polynomial """
+"""Calculates deivative of a polynomial"""
 
 
 def poly_derivative(poly):
@@ -21,13 +21,13 @@ def poly_derivative(poly):
     for coefficient in poly:
         if type(coefficient) is not int and type(coefficient) is not float:
             return None
-    for power, coefficient in enumerate(poly):
-        if power is 0:
-            derivative = [0]
-            continue
-        if power is 1:
-            derivative = []
-        derivative.append(power * coefficient)
-    while derivative[-1] is 0 and len(derivative) > 1:
-        derivative = derivative[:-1]
-    return derivative
+        derivative = []  # list of derivative coefficients
+        for power, coefficient in enumerate(poly):
+            if power == 0:
+                continue
+            derivative.append(power * coefficient)
+        while len(derivative) > 1 and derivative[-1] == 0:
+            derivative.pop()
+        if not derivative:
+            return [0]
+        return derivative

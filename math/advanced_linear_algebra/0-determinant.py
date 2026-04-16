@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Function that calculates the determinant of a matrix"""
+"""Function to calculate the determinant of a matrix"""
 
 
 def determinant(matrix):
-    """Function that calculates the determinant of a matrix"""
+    """Calculates the determinant of a matrix"""
     if type(matrix) is not list or len(matrix) == 0:
         raise TypeError("matrix must be a list of lists")
     if len(matrix) > 0:

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Bracing the elements
+function that performs element-wise add, subtract, multiply & division
 """
 
 

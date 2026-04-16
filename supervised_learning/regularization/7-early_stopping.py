@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
-""" Early stopping
+"""
+Function performs Early stopping
 """
 
 
 def early_stopping(cost, opt_cost, threshold, patience, count):
-    """ Determines if gradient descent should stop
+    """
+    Determines if gradient descent should stop early
 
     Args:
         cost (float): is the current validation cost for the neural network
@@ -12,7 +14,8 @@ def early_stopping(cost, opt_cost, threshold, patience, count):
         threshold (float): the threshold used for early stopping
         patience (float): the patience coutn used for early stopping
         count (int): count of the how long the threshold has not been met.
-    Returns: bool whether the network should be stopped early, followed by
+    Returns:
+    bool whether the network should be stopped early, followed by
     the updated count
         (bool, float)
     """

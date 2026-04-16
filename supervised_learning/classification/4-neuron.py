@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Class Neuron that defines a single neuron performing binary classification
+"""
+Class Neuron that defines a single neuron performing binary classification
 """
 
 
@@ -7,85 +8,106 @@ import numpy as np
 
 
 class Neuron:
-    """ Class Neuron
     """
+    Defines a single neuron performing binary classification.
+    Attributes:
+        nx(int): The number of input features to the neuron.
+        __W(numpy.ndarray): The weight vector of the neuron
+        __b(float): The bias of the neuron
+        __A(float): The activated output of the neuron
 
+    Raises:
+        TypeError: If nx is not an integer.
+        ValueError: If nx is less than 1.
+
+    - public instance attributes
+    """
     def __init__(self, nx):
-        """ Instantiation function of the neuron
+        """
+        Initializes the Neuron.
 
         Args:
-            nx (_type_): _description_
-
-        Raises:
-            TypeError: _description_
-            ValueError: _description_
+            nx (int): The number of input features to the neuron.
         """
         if not isinstance(nx, int):
-            raise TypeError('nx must be an integer')
+            raise TypeError("nx must be an integer")
         if nx < 1:
-            raise ValueError('nx must be positive')
+            raise ValueError("nx must be a positive integer")
+        self.nx = nx
 
-        # initialize private instance attributes
+        # Initialize weight vector with random normal distribution
         self.__W = np.random.normal(size=(1, nx))
-        self.__b = 0
-        self.__A = 0
+        self.__b = 0  # Private bias of the neuron
+        self.__A = 0  # Private activated output of the neuron(prediction)
 
-        # getter function
+    # Getter functions
     @property
     def W(self):
-        """Return weights"""
+        """
+        Getter of the weight vector
+        """
         return self.__W
 
     @property
     def b(self):
-        """Return bias"""
+        """
+        Getter of the bias
+        """
         return self.__b
 
     @property
     def A(self):
-        """Return output"""
+        """
+        Getter of the activated output
+        """
         return self.__A
 
     def forward_prop(self, X):
-        """Calculates the forward propagation of the neuron
+        """
+        Calculates the forward propagation of the neuron
 
         Args:
-            X (numpy.ndarray): matrix with the input data of shape (nx, m)
+            X(numpy.ndarray): Contains input data with shape(nx, m):
+                -nx: Number of input features to the neuron
+                -m: The number of examples
 
-        Returns:
-            numpy.ndarray: The output of the neural network.
+        Updates the private attribute __A
+        Neuron uses a sigmoid activation function and returns the __A attribute
         """
+
         z = np.matmul(self.__W, X) + self.__b
         sigmoid = 1 / (1 + np.exp(-z))
         self.__A = sigmoid
         return self.__A
 
     def cost(self, Y, A):
-        """ Compute the of the model using logistic regression
+        """
+        Calculates the cost of the model using logistic regression
 
         Args:
-            Y (np.array): True values
-            A (np.array): Prediction valuesss
+            Y(numpy.ndarray): Shape(1, m) contains correct labels for the input
+            A(numpy.ndarray): Shape(1, m) contains the activated output
 
         Returns:
-            float: cost function
+            Cost function
         """
-        # calculate
         loss = - (Y * np.log(A) + (1 - Y) * np.log(1.0000001 - A))
         cost = np.mean(loss)
         return cost
 
     def evaluate(self, X, Y):
-        """ Evaluate the cost function
+        """
+        Evaluates the neuron's predictions
 
         Args:
-            X (np.array): Input array
-            Y (np.array): actual values
+            X(numpy.ndarray): Shape(nx, m) contains input data
+                m: number of examples
 
         Returns:
-            tuple: Prediction and Cost
+            Neuron's prediction
+            Cost function
         """
-        pred = self.forward_prop(X)
-        cost = self.cost(Y, pred)
-        pred = np.where(pred > 0.5, 1, 0)
+        A = self.forward_prop(X)
+        cost = self.cost(Y, A)
+        pred = np.where(A > 0.5, 1, 0)
         return (pred, cost)

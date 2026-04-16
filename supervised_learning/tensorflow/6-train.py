@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-""" train"""
+"""
+Function builds, trains and saves a neural network classifier
+"""
 
 
 import tensorflow as tf
@@ -12,7 +14,23 @@ forward_prop = __import__('2-forward_prop').forward_prop
 
 def train(X_train, Y_train, X_valid, Y_valid, layer_sizes,
           activations, alpha, iterations, save_path="/tmp/model.ckpt"):
-    """ train model"""
+    """
+    builds, trains and saves a neural network classifier
+
+    Args:
+    X_train(numpy.ndarray): input data
+    Y_train(numpy.ndarray): training labels
+    X_valid(numpy.ndarray): validation input data
+    Y_valid(numpy.ndarray): validation labels
+    layer_sizes: list of number of nodes in each layer
+    activations: activation functions list for each layer
+    alpha: learning rate
+    iterations: number of iterations to train over
+    save_path: designates where to save the model
+
+    Returns:
+    path where the model is saved
+    """
     x, y = create_placeholders(X_train.shape[1], Y_train.shape[1])
     tf.add_to_collection('x', x)
     tf.add_to_collection('y', y)

@@ -1,11 +1,7 @@
 #!/usr/bin/env python3
-"""
-transpose an n x m matrix (2D list) and return the transposed matrix.
-"""
+"""Creates a function that transposes a 2D matrix"""
 
 
 def np_transpose(matrix):
-    """
-    Returns the transpose of a 2D matrix
-    """
+    """Returns the transpose of a 2D matrix"""
     return matrix.transpose()

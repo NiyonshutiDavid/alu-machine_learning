@@ -1,1 +1,1 @@
-# Convolutions and pooling
+convolutions and pooling of images`

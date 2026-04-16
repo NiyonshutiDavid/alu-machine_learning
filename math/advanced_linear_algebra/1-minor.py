@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Function that calculates the minor matrix of a matrix"""
+"""Calculates the minor matrix of a matrix"""
 
 
 def determinant(matrix):

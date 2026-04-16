@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""""Function  that calculates the posterior
+"""Function  that calculates the posterior
 probability for the various hypothetical probabilities
 of developing severe side effects given the data"""
 
@@ -7,9 +7,22 @@ import numpy as np
 
 
 def posterior(x, n, P, Pr):
-    """""Function  that calculates the posterior
+    """
+    Function  that calculates the posterior
     probability for the various hypothetical probabilities
-    of developing severe side effects given the data"""
+    of developing severe side effects given the data
+
+    Args:
+        x is the number of patients that develop severe side effects
+        n is the total number of patients observed
+        P is a 1D numpy.ndarray of length equal to the
+        number of patients that develop severe side effects
+        Pr is a 1D numpy.ndarray of length equal to the
+        number of patients that develop severe side effects
+
+    Returns:
+        the posterior probability of obtaining x
+    """
     if type(n) is not int or n <= 0:
         raise ValueError("n must be a positive integer")
     if type(x) is not int or x < 0:

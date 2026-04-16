@@ -3,7 +3,7 @@
 
 
 def determinant(matrix):
-    """Function that calculates the determinant of a matrix"""
+    """Calculates the determinant of a matrix"""
     if len(matrix) == 1 and len(matrix[0]) == 0:
         return 1
     if len(matrix) == 1 and len(matrix[0]) == 1:
@@ -23,7 +23,7 @@ def determinant(matrix):
 
 
 def cofactor(matrix):
-    """Function that calculates the cofactor matrix of a matrix"""
+    """Calculates the cofactor matrix of a matrix"""
     if len(matrix) == 1 and len(matrix[i]) == 1:
         return [[1]]
     if len(matrix) == 2:
@@ -48,7 +48,7 @@ def cofactor(matrix):
 
 
 def inverse(matrix):
-    """Function that calculates the inverse of a matrix"""
+    """Calculates the inverse of a matrix"""
     if type(matrix) is not list or len(matrix) == 0:
         raise TypeError("matrix must be a list of lists")
     for i in matrix:

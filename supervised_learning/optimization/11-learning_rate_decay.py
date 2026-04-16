@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" Learing rate decay
+""" Learning rate decay
 """
 
 

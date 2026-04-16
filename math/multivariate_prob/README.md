@@ -1,1 +1,1 @@
-# multivariate_prob
+the multivariate probability

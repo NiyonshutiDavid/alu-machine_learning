@@ -3,7 +3,7 @@
 
 
 def determinant(matrix):
-    """Function that calculates the determinant of a matrix"""
+    """Calculates the determinant of a matrix"""
     if len(matrix) == 2:
         return ((matrix[0][0] * matrix[1][1]) - (matrix[0][1] * matrix[1][0]))
     det = []
@@ -19,7 +19,7 @@ def determinant(matrix):
 
 
 def cofactor(matrix):
-    """Function that calculates the cofactor matrix of a matrix"""
+    """Calculates the cofactor matrix of a matrix"""
     if len(matrix) == 2:
         cofactor = [i[::-1] for i in matrix]
         cofactor = cofactor[::-1]
@@ -42,7 +42,7 @@ def cofactor(matrix):
 
 
 def adjugate(matrix):
-    """Function that calculates the adjugate matrix of a matrix"""
+    """Calculates the adjugate matrix of a matrix"""
     if type(matrix) is not list or len(matrix) == 0:
         raise TypeError("matrix must be a list of lists")
     for i in matrix:

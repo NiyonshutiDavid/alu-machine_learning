@@ -1,20 +1,26 @@
 #!/usr/bin/env python3
-""" Forward Propagation with Dropout """
+"""
+Function conducts forward Propagation with Dropout """
 
 
 import numpy as np
 
 
 def dropout_forward_prop(X, weights, L, keep_prob):
-    """ Forward Propagation with Dropout
+    """
+    Forward Propagation with Dropout
+
+    Args:
         X: (nx, m) input data
           nx: number of input features
           m: number of examples
         weights: dictionary of weights and biases of the neural network
         L: number of layers in the network
         keep_prob: probability that a node will be kept
-        Returns: dictionary containing the outputs of each
-        layer and the dropout mask used on each layer
+
+    Returns:
+    dictionary containing the outputs of each
+    layer and the dropout mask used on each layer
     """
     cache = {}
     cache['A0'] = X

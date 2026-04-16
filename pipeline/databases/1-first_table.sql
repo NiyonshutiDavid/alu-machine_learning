@@ -1,4 +1,4 @@
 -- create table if it doesn't exist
-CREATE TABLE IF NOT EXISTS first_table (
+CREATE TABLE IF NOT EXISTS first_table(
   id INT,
-  name VARCHAR(100));
+  name VARCHAR(100))

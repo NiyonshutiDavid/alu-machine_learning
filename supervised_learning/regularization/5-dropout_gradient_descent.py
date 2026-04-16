@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-""" Gradient Descent with Dropout
+"""
+Function updates weights using gradient Descent with Dropout
 """
 
 
@@ -7,7 +8,10 @@ import numpy as np
 
 
 def dropout_gradient_descent(Y, weights, cache, alpha, keep_prob, L):
-    """ updates the weights of a neural network with Dropout regularization
+    """
+    Updates the weights of a neural network with Dropout regularization
+
+    Args:
         Y: (classes, m) one-hot encoded labels
           classes: number of classes
           m: number of examples
@@ -16,7 +20,9 @@ def dropout_gradient_descent(Y, weights, cache, alpha, keep_prob, L):
         alpha: learning rate
         keep_prob: probability that a node will be kept
         L: number of layers of the network
-        Updates: weights and biases of the network
+
+        Updates:
+        weights and biases of the network
     """
     m = Y.shape[1]
     dz = cache['A' + str(L)] - Y

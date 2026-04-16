@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-Compute gradient descent with L2 regularization
+Function updates the weights and biases using
+gradient descent with L2 regularization
 """
 
 
@@ -8,15 +9,20 @@ import numpy as np
 
 
 def l2_reg_gradient_descent(Y, weights, cache, alpha, lambtha, L):
-    """ Compute gradient descent with L2 regularization
+    """
+    Updates the weights and biases using
+    gradient descent with L2 regularization
 
     Args:
-        Y (numpy.ndarray): one-hot matrix with the correct labels
+        Y (numpy.ndarray): one-hot matrix with the correct labels(classes, m)
         weights (dict): The weights and biases of the network
         cache (dict): The outputs of each layer of the network
         alpha (float): The learning rate
         lambtha (float): The L2 regularization parameter
         L (int): The number of layers of the network
+
+    Returns:
+    Updates weights and biases
     """
     m = Y.shape[1]
     dz = cache['A' + str(L)] - Y
